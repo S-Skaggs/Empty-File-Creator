@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "EmptyFileCreator": {
+      "commandName": "Project",
+      "commandLineArgs": "C:\\Test txt"
+    }
+  }
+}
