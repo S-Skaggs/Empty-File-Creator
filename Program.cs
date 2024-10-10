@@ -1,26 +1,22 @@
-﻿// See https://aka.ms/new-console-template for more information
-using EmptyFileCreator;
-using System.Diagnostics;
-using System.Runtime.CompilerServices;
-
+﻿using EmptyFileCreator;
 
 try
 {
-	Console.WriteLine("Checking for arguments...");
-	if (args.Length != 2 )
-	{
-		throw new ArgumentException("Expected two arguments, path and file type.");
-	}
-	Console.WriteLine(String.Format("Attempting to create {0}\\SomeFileName.{1}", args[0], args[1]));
-    Generator generator = new Generator(args[0], args[1]);
-	Console.WriteLine(generator.CreateEmptyFile());
+    Console.WriteLine("Checking for arguments...");
+    if (args.Length != 2 )
+    {
+        throw new ArgumentException("Expected two arguments: 'path' and 'file type'.");
+    }
+    Console.WriteLine($@"Attempting to create {args[0]}\SomeFileName.{args[1]}");
+    Generator generator = new(args[0], args[1]);
+    Console.WriteLine(generator.GenerateFile());
 }
 catch (Exception e)
 {
-	Console.WriteLine(e.ToString());
-	Environment.ExitCode = 1;
+    Console.WriteLine(e.Message);
+    Environment.ExitCode = 1;
 }
 finally
 {
-	Thread.Sleep(1000);
+    Thread.Sleep(1000);
 }
